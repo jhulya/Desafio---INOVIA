@@ -1,0 +1,125 @@
+/*classes*/
+.modal/*, .modal2, .modal3, .modal4, .modal5*/{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+    opacity: 0;
+    z-index:-1;
+    transition: 0.5s ease;
+}
+.modal.active{
+    opacity: 1;
+    z-index: 1;
+}
+/*
+.active2{
+    opacity: 1;
+    z-index: 2;
+}
+.active3{
+    opacity: 1;
+    z-index: 2;
+}
+.active4{
+    opacity: 1;
+    z-index: 2;
+}
+.active5{
+    opacity: 1;
+    z-index: 2;
+}*/
+
+.modal-content{
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   width: 50vw;
+   margin: 15vh auto;
+   padding-bottom: 20px;
+   background-color: white;
+   box-shadow: 1px 1px 10px black;
+}
+
+.modal-form{
+    display: block;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 5px 20px;
+    /*text-align: left;*/
+}
+
+.area-modal{
+    width: 30%;
+    height: 30px;
+    outline-style: none;
+    border-style: none;
+    box-shadow: 0 0 2px black;
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+.area-modal:focus{
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 3px var(--primary-color);
+}
+
+.footer-modal{
+    background-color: inherit;
+    text-align:right;
+    padding: 0 20px;
+}
+
+.modal-header{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.fecha-modal/*, .fecha-modal2, .fecha-modal3, .fecha-modal4,.fecha-modal5*/{
+    position: absolute;
+    right: 0;
+    display: block;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    background-color: var(--primary-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+.fecha-modal:hover/*, .fecha-modal2:hover, .fecha-modal3:hover, .fecha-modal4:hover,.fecha-modal5:hover*/{
+    background-color: rgb(87, 12, 173);
+    color:rgb(178, 150, 231)
+}
+
+@media(max-width:480px){
+    .modal{
+        top: 100%;
+        transition: all 1s ease;
+    }
+
+    .modal.active{
+        top:0;
+    }
+
+    .modal-content{
+        margin:0;
+        width:100%;
+        position: fixed;
+    }
+
+    .area-modal{
+        width: 100%;
+    }
+}
+
+
+

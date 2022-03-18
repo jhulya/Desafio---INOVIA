@@ -1,0 +1,81 @@
+/*classes*/
+.records{
+    width: 100%;
+    user-select: none;
+    text-align: center;
+}
+
+.records th{
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
+    padding: 10px 12px;
+    /*border-radius: 2%;*/
+}
+
+.records th:last-child{
+    color: var(--primary-color)
+}
+
+.records td{
+    height: 15px;
+    /*padding: 0 12px;*/
+    border-radius: 5%;
+    /*padding-bottom: 5px;*/
+}
+
+.records th:last-child,.records td:last-child{
+    padding: 0;
+    min-width: 150px;
+    text-align: center;
+}
+
+.records tr:hover{
+    transition: 1s ease;
+    background-color: var(--secundary-color);
+}
+
+.finalizada{
+    color: white;
+    background-color:  rgb(59, 177, 131);
+    margin: 30px;
+}
+
+.atribuida, .media{
+    color: white;
+    background-color:  rgb(238, 215, 82);
+    margin: 30px;
+}
+
+.atribuida, .media, .finalizada{
+    display: block;
+}
+
+@media(max-width:480px){
+    .records{
+        border-spacing: 10px;
+    }
+
+    .records thead{
+        display: none;
+    }
+
+    .records tr{
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+
+    .records td{
+        margin: 20px 0;
+    }
+
+    .records td:not(:first-child){
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .records tr:hover{
+        background-color: inherit;
+    }
+
+}
