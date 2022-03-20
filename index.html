@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- bootstrap -->
+        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+       
+        <!-- DataTables -->
+        <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+        <!--fonte-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Varela+Round&display=swap" rel="stylesheet">
+
+        <!--fonte-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="button.css">
+        <link rel="stylesheet" href="records.css">
+        <link rel="stylesheet" href="modal.css">
+        <script src="main.js" defer></script>
+        <title>CRUD</title>
+    </head>
+    <body>
+
+        <header>
+            <h1 class="header-e-titulo">ORDENS DE SERVIÇO</h1>
+        </header>
+
+        <p>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aqui você pode visualizar todas as ordens de serviço cadastradas. Clique no nome de uma coluna para ordenar a tabela, e clique novamente para inverter a ordem caso desejado.
+            Para adicionar novas ordens de serviço, clique no botão "+" e selecione os dados solicitados.  
+
+        </p>
+
+        <div>
+
+            <button type="button" class="button principal mobile " id="cadastrarCliente" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <span class="material-icons">
+                    add
+                </span>
+            </button>
+
+        </div>
+           
+        <main>
+            
+            <table id="tableClient" class="records" id="tabela">
+
+                <thead>
+                    <th>O.S.</th>
+                    <th>STATUS</th>
+                    <th>DATA DE CRIAÇÃO</th>
+                    <th>DATA PREVISTA</th>
+                    <th>CLIENTE</th>
+                    <th>FUNCIONÁRIOS</th>
+                    <th>PRIORIDADE</th>
+                    <th>AÇÕES</th>
+                </thead>
+
+                <tbody>
+<!-- 
+                    <tr>
+                        <td>#1</td>
+                        <td class="finalizada">Finalizada</td>
+                        <td>02/03/2022</td>
+                        <td>05/03/2022</td>
+                        <td>Dois Irmãos Auto Eletrica e Mecânica</td>
+                        <td>Bruno Santos</td>
+                        <td class="media">Média</td>
+                        <td>
+                            <button type= "button" class="button editar">
+                                <span class="material-icons">
+                                    edit
+                                </span>
+                            </button>
+                            <button type= "button" class="button excluir">
+                                <span class="material-icons">
+                                    delete
+                                </span>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>#2</td>
+                        <td class="atribuida">Atribuída</td>
+                        <td>03/03/2022</td>
+                        <td>06/03/2022</td>
+                        <td>Dois Irmãos Auto Eletrica e Mecânica</td>
+                        <td>Bruno Santos</td>
+                        <td class="media">Média</td>
+                        <td>
+                            <button type= "button" class="button editar">
+                                <span class="material-icons">
+                                    edit
+                                </span>
+                            </button>
+                            <button type= "button" class="button excluir">
+                                <span class="material-icons">
+                                    delete
+                                </span>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>#3</td>
+                        <td class="atribuida">Atribuída</td>
+                        <td>04/03/2022</td>
+                        <td>07/03/2022</td>
+                        <td>Carlos Costa</td>
+                        <td>André Silva</td>
+                        <td class="media">Média</td>
+                        <td>
+                            <button type= "button" class="button editar">
+                                <span class="material-icons">
+                                    edit
+                                </span>
+                            </button>
+                            <button type= "button" class="button excluir">
+                                <span class="material-icons">
+                                    delete
+                                </span>
+                            </button>
+                        </td> 
+                    </tr>
+-->
+                </tbody>
+
+            </table>
+
+            <!--modal html css e js-->
+            <div class="modal" id="modal">
+
+                <div class="modal-content">
+
+                    <header class="modal-header">
+                        <h2>Criar Ordem de Serviço</h2>
+                        <span class="fecha-modal" id="modalClose">
+                            &#10006
+                        </span>
+                    </header>
+
+                    <form id="form" class="modal-form">
+                        <span>
+                            Data prevista para o início: 
+                            <input type="date" id="data" class="area-modal" required> 
+                        </span> <br><br>
+                        <span>
+                            Empresa: 
+                            <input type="text" id="empresa" class="area-modal" placeholder="Empresa" required>
+                            <!-- <button type="button" class="button adicionar" id="adicionarEmpresa" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Adicionar
+                            </button> -->
+                        </span><br><br>
+
+                        <span>
+                            Cliente:
+                            <input type="text" id="cliente" class="area-modal" placeholder="Cliente" required>
+                            <!-- <button type="button" class="button adicionar" id="adicionarCliente" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Adicionar
+                            </button> -->
+                        </span><br><br>
+
+                        <span>
+                            Endereço: 
+                            <input type="text" id="endereco" class="area-modal" placeholder="Endereço" required>
+                            <!-- <button type="button" class="button adicionar" id="adicionarEndereco" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Adicionar
+                            </button> -->
+                        </span><br><br>
+
+                        <span>
+                            Serviço: 
+                            <input type="text" id="servico" class="area-modal" placeholder="Serviço" required>
+                            <!-- <button type="button" class="button adicionar" id="adicionarServico" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Adicionar
+                            </button> -->
+                        </span><br><br>
+
+                        <span>
+                            Tempo de Serviço (min):
+                            <input type="number" min="0" id="tempo" class="area-modal" required>
+                        </span>
+                        
+                    </form>
+
+                    <footer class= "footer-modal">
+                        <button id="salvar" class= "button salvar">
+                            Salvar
+                        </button>
+                    </footer>
+                </div>
+            </div>
+                        <!--Modal Empresa
+                    <div class="modal2" id="modal2">
+                        <div class="modal-content">
+                            <header class="modal-header">
+                                <h2>ADICIONE A EMPRESA</h2>
+                                <span class="fecha-modal2" id="modalClose2">
+                                &#10006
+                                </span>
+                            </header>
+                            
+                            <form class="modal-form">
+                                 <input type="text" id="empresa" class="area-modal" placeholder="Empresa" required>
+                            </form>
+
+                            <footer class= "footer-modal">
+                                <button  class= "button principal">
+                                    Adicionar
+                                </button>
+                            </footer>
+                        </div>
+                    </div>-->
+
+                        <!--Modal Cliente
+                    <div class="modal3" id="modal3">
+                        <div class="modal-content">
+                            <header class="modal-header">
+                                <h2>ADICIONE O CLIENTE</h2>
+                                <span class="fecha-modal3" id="modalClose3">
+                                &#10006
+                                </span>
+                            </header>
+
+                            <form class="modal-form">
+                                <input type="text" id="cliente" class="area-modal" placeholder="Cliente" required>
+                            </form>
+
+                            <footer class= "footer-modal">
+                                <button  class= "button principal">
+                                    Adicionar
+                                </button>
+                            </footer>
+                        </div>
+                    </div>-->
+                    
+                        <!--Modal Endereço
+                    <div class="modal4" id="modal4">  
+                        <div class="modal-content">
+                            <header class="modal-header">
+                                <h2>ADICIONE O ENDEREÇO</h2>
+                                <span class="fecha-modal4" id="modalClose4">
+                                &#10006
+                                </span>
+                            </header>
+
+                            <form class="modal-form">
+                                <input type="text" id="endereco" class="area-modal" placeholder="Endereço" required>
+                            </form>
+
+                            <footer class= "footer-modal">
+                                <button  class= "button principal">
+                                    Adicionar
+                                </button>
+                            </footer>
+                        </div>
+                    </div>-->
+
+                        <!--Modal Seriviço
+                    <div class="modal5" id="modal5">
+                        <div class="modal-content">
+                            <header class="modal-header">
+                                <h2>ADICIONE O SERVIÇO</h2>
+                                <span class="fecha-modal5" id="modalClose5">
+                                &#10006
+                                </span>
+                            </header>
+
+                            <form class="modal-form">
+                                <input type="text" id="servico" class="area-modal" placeholder="Serviço" required>
+                            </form>
+
+                            <footer class= "footer-modal">
+                                <button  class= "button principal">
+                                    Adicionar
+                                </button>
+                            </footer>
+                        </div>
+                    </div>-->
+
+        </main>
+
+        <footer>
+            Copyright &copy; Jhulya Cristina
+        </footer>
+
+        <!-- modal bootstrap
+        
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div>
+                        <header class="modal-header">
+                            <h2>Criar Ordem de Serviço</h2>
+                            <button type="button" class="button principal" data-bs-dismiss="modal" aria-label="Close">
+                                &#10006
+                            </button>
+                        </header>
+                    </div>
+
+                    <div>
+                        <form class="modal-form">
+                            Data prevista para o início: <input type="date" class="area-modal"> 
+                            <input type="text" class="area-modal" placeholder="Empresa"> 
+                            <input type="text" class="area-modal" placeholder="Cliente">
+                            <input type="text" class="area-modal" placeholder="Endereço">
+                            <input type="text" class="area-modal" placeholder="Serviço">
+                            <input type="number" min="0" class="area-modal">
+                        </form>
+                    </div>
+
+                    <div>
+                        <footer class="footer-modal">
+                            <button type="button" class="button principal" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="button principal">Salvar</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- DataTable Script-->
+        <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <!-- bootstrap -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+        <script>
+            $('#tabela').DataTable();
+        </script>
+    </body>
+</html>
